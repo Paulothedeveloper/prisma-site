@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { COPY, SPECTRUM, DOWNLOAD_URL, GITHUB_URL, CONTACT_EMAIL, type Lang } from "./content";
+import { COPY, COMPARE, FAQ, SPECTRUM, DOWNLOAD_URL, GITHUB_URL, CONTACT_EMAIL, type Lang } from "./content";
 import { Icon } from "./Icon";
 import "./App.css";
 
@@ -136,6 +136,37 @@ export default function App() {
           </div>
         </section>
 
+        <section className="section compare">
+          <div className="section-head" data-reveal>
+            <h2>{COMPARE[lang].title}</h2>
+            <p className="lead">{COMPARE[lang].sub}</p>
+          </div>
+          <div className="cmp-wrap" data-reveal>
+            <table className="cmp-table">
+              <thead>
+                <tr>
+                  <th />
+                  <th className="cmp-us">{COMPARE[lang].cols[0]}</th>
+                  <th>{COMPARE[lang].cols[1]}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {COMPARE[lang].rows.map((r) => (
+                  <tr key={r.f}>
+                    <td className="cmp-f">{r.f}</td>
+                    <td className="cmp-us">
+                      <Cell v={r.a} />
+                    </td>
+                    <td>
+                      <Cell v={r.b} />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
         <section className="section video-sec">
           <div className="section-head" data-reveal>
             <h2>{lang === "pt" ? "Veja o PRISMA em ação" : "See PRISMA in action"}</h2>
@@ -161,6 +192,20 @@ export default function App() {
                 <h3>{w.title}</h3>
                 <p>{w.body}</p>
               </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="section faq">
+          <div className="section-head" data-reveal>
+            <h2>{FAQ[lang].title}</h2>
+          </div>
+          <div className="faq-list">
+            {FAQ[lang].items.map((it, i) => (
+              <details className="faq-item" key={it.q} data-reveal style={{ transitionDelay: `${(i % 3) * 50}ms` }}>
+                <summary>{it.q}</summary>
+                <p>{it.a}</p>
+              </details>
             ))}
           </div>
         </section>
@@ -198,4 +243,11 @@ export default function App() {
       </footer>
     </>
   );
+}
+
+function Cell({ v }: { v: string }) {
+  const low = v.toLowerCase();
+  if (low === "sim" || low === "yes") return <span className="ck yes" aria-label="sim">✓</span>;
+  if (low === "não" || low === "nao" || low === "no") return <span className="ck no" aria-label="não">✕</span>;
+  return <span className="cval">{v}</span>;
 }
