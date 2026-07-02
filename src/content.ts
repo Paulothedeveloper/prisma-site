@@ -38,6 +38,73 @@ interface Copy {
   footer: { built: string; free: string; rights: string };
 }
 
+// Comparativo honesto vs Eagle (rival direto). ✓/✗/~ por coluna. Fonte do preço do Eagle: en.eagle.cool/store (US$34,95).
+export const COMPARE: Record<Lang, { title: string; sub: string; cols: [string, string]; rows: { f: string; a: string; b: string }[] }> = {
+  pt: {
+    title: "PRISMA vs. Eagle",
+    sub: "Faz tudo que o Eagle faz — e o que só quem edita vídeo sabe que falta.",
+    cols: ["PRISMA", "Eagle"],
+    rows: [
+      { f: "Preço", a: "Grátis (open source)", b: "US$ 34,95" },
+      { f: "Offline, sem conta", a: "sim", b: "sim" },
+      { f: "Nunca toca nos originais", a: "sim", b: "sim" },
+      { f: "Organizar, tags, busca por cor", a: "sim", b: "sim" },
+      { f: "CST de cor pro DaVinci Resolve", a: "sim", b: "não" },
+      { f: "Proxies automáticos (ProRes etc.)", a: "sim", b: "não" },
+      { f: "Diagnóstico + conserto (VFR, banding)", a: "sim", b: "não" },
+      { f: "Baixar de YouTube / Instagram", a: "sim", b: "não" },
+      { f: "Busca por IA (imagem/significado)", a: "sim", b: "sim" },
+      { f: "Marca d'água, OCR, GIF, contact-sheet", a: "sim", b: "sim" },
+      { f: "Código aberto", a: "sim", b: "não" },
+      { f: "Windows / Mac", a: "Windows (Mac em breve)", b: "Windows e Mac" },
+    ],
+  },
+  en: {
+    title: "PRISMA vs. Eagle",
+    sub: "Does everything Eagle does — plus what only a video editor knew was missing.",
+    cols: ["PRISMA", "Eagle"],
+    rows: [
+      { f: "Price", a: "Free (open source)", b: "US$ 34.95" },
+      { f: "Offline, no account", a: "yes", b: "yes" },
+      { f: "Never touches originals", a: "yes", b: "yes" },
+      { f: "Organize, tags, color search", a: "yes", b: "yes" },
+      { f: "Color CST for DaVinci Resolve", a: "yes", b: "no" },
+      { f: "Automatic proxies (ProRes etc.)", a: "yes", b: "no" },
+      { f: "Diagnose + fix (VFR, banding)", a: "yes", b: "no" },
+      { f: "Download from YouTube / Instagram", a: "yes", b: "no" },
+      { f: "AI search (image/meaning)", a: "yes", b: "yes" },
+      { f: "Watermark, OCR, GIF, contact-sheet", a: "yes", b: "yes" },
+      { f: "Open source", a: "yes", b: "no" },
+      { f: "Windows / Mac", a: "Windows (Mac soon)", b: "Windows & Mac" },
+    ],
+  },
+};
+
+export const FAQ: Record<Lang, { title: string; items: { q: string; a: string }[] }> = {
+  pt: {
+    title: "Perguntas frequentes",
+    items: [
+      { q: "É grátis mesmo?", a: "Sim. O PRISMA é gratuito e de código aberto. Baixe e use, sem conta e sem cartão." },
+      { q: "Funciona offline?", a: "100%. Tudo roda no seu PC — sem nuvem, sem servidor, sem depender de internet." },
+      { q: "Ele altera meus arquivos?", a: "Nunca. O PRISMA indexa suas pastas onde já estão e jamais move, renomeia ou edita um original. Tudo que ele gera é cópia nova." },
+      { q: "Quais sistemas?", a: "Windows agora. Versão para Mac vem a seguir." },
+      { q: "Como recebo atualizações?", a: "O app se atualiza sozinho — você sempre tem a versão mais nova." },
+      { q: "Preciso de conta ou nuvem?", a: "Não. Sua biblioteca é sua, no seu disco." },
+    ],
+  },
+  en: {
+    title: "Frequently asked questions",
+    items: [
+      { q: "Is it really free?", a: "Yes. PRISMA is free and open source. Download and use it — no account, no card." },
+      { q: "Does it work offline?", a: "100%. Everything runs on your machine — no cloud, no server, no internet needed." },
+      { q: "Does it alter my files?", a: "Never. PRISMA indexes your folders in place and never moves, renames or edits an original. Everything it makes is a fresh copy." },
+      { q: "Which systems?", a: "Windows now. A Mac version is coming next." },
+      { q: "How do I get updates?", a: "The app updates itself — you always have the latest version." },
+      { q: "Do I need an account or cloud?", a: "No. Your library is yours, on your disk." },
+    ],
+  },
+};
+
 export const COPY: Record<Lang, Copy> = {
   pt: {
     nav: { features: "Recursos", gallery: "Telas", audiences: "Pra quem é", download: "Baixar" },
