@@ -136,6 +136,21 @@ export default function App() {
           </div>
         </section>
 
+        <section className="section video-sec">
+          <div className="section-head" data-reveal>
+            <h2>{lang === "pt" ? "Veja o PRISMA em ação" : "See PRISMA in action"}</h2>
+          </div>
+          <div className="video-frame" data-reveal>
+            <video
+              src="trailer.mp4"
+              poster="trailer-poster.jpg"
+              controls
+              playsInline
+              preload="none"
+            />
+          </div>
+        </section>
+
         <section className="section why" data-reveal>
           <div className="section-head">
             <h2>{c.why.title}</h2>
@@ -156,6 +171,7 @@ export default function App() {
               <span key={col} style={{ background: col }} />
             ))}
           </div>
+          <img className="cta-mascote" src="mascote.png" alt="" loading="lazy" aria-hidden />
           <h2>{c.cta.title}</h2>
           <p>{c.cta.sub}</p>
           <a className="btn btn-primary btn-lg" href={DOWNLOAD_URL} target="_blank" rel="noreferrer">
