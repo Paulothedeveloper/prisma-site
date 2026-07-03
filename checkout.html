@@ -1,0 +1,109 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Comprar PRISMA Pro</title>
+<style>
+:root{--bg:#0b0b0e;--panel:#141418;--panel2:#0f0f13;--ink:#e7e7ea;--mut:#8a8a90;--hair:rgba(255,255,255,.08);--accent:#0a84ff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+.spectrum{height:5px;background:linear-gradient(90deg,#ff3b30,#ff950a,#ffd60a,#30d158,#0a84ff,#5e5ce6,#bf5af2)}
+.wrap{max-width:960px;margin:0 auto;padding:56px 20px 80px}
+h1{font-size:clamp(28px,5vw,44px);font-weight:800;letter-spacing:-.02em;text-align:center;margin:0 0 8px;background:linear-gradient(180deg,#fff,#b9c2d0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{text-align:center;color:var(--mut);max-width:520px;margin:0 auto 40px;line-height:1.55}
+.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:0;border:1px solid var(--hair);border-radius:20px;overflow:hidden;background:var(--panel2)}
+.col{padding:30px}
+.col.form{background:var(--panel)}
+.row{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--hair)}
+.row:last-child{border-bottom:0}
+.lbl{width:88px;color:var(--mut);font-size:14px;flex:none}
+.seg{display:flex;background:#0c0c10;border:1px solid var(--hair);border-radius:10px;padding:3px;flex:1}
+.seg button{flex:1;background:none;border:0;color:var(--mut);padding:8px;border-radius:8px;font-size:14px;cursor:pointer}
+.seg button.on{background:#1c1c22;color:#fff}
+input[type=text],input[type=email]{flex:1;background:#0c0c10;border:1px solid var(--hair);border-radius:10px;color:#fff;padding:11px 12px;font-size:14px;outline:none}
+input:focus{border-color:var(--accent)}
+.qty{display:flex;align-items:center;gap:2px}
+.qty button{width:38px;height:38px;background:#0c0c10;border:1px solid var(--hair);color:#fff;border-radius:10px;font-size:18px;cursor:pointer}
+.qty .n{width:52px;text-align:center;background:#0c0c10;border:1px solid var(--hair);border-radius:10px;height:38px;line-height:38px}
+.pay{display:flex;align-items:center;gap:10px;background:#0c0c10;border:1px solid var(--hair);border-radius:10px;padding:11px 14px;flex:1;color:#fff;font-size:14px}
+.inc h3{margin:0 0 18px;font-size:15px;letter-spacing:.02em;color:#fff}
+.inc li{list-style:none;display:flex;gap:10px;align-items:flex-start;color:#cdd3db;font-size:14px;margin-bottom:13px;line-height:1.4}
+.inc ul{margin:0;padding:0}
+.chk{color:#30d158;flex:none;margin-top:1px}
+.tot{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--hair);margin-top:22px;padding-top:20px}
+.tot .v{font-size:30px;font-weight:800}
+.tot .v small{font-size:14px;color:var(--mut);font-weight:600}
+.btn{width:100%;margin-top:16px;background:var(--accent);color:#fff;border:0;border-radius:12px;padding:15px;font-size:16px;font-weight:700;cursor:pointer;transition:filter .15s}
+.btn:hover{filter:brightness(1.08)} .btn:disabled{opacity:.55;cursor:default}
+.note{margin-top:14px;font-size:12px;color:var(--mut);text-align:center;line-height:1.5}
+#status{margin-top:14px;font-size:13px;text-align:center;min-height:18px}
+.seal{position:absolute;top:20px;right:24px;color:#2a2a30;font-size:11px;letter-spacing:.2em}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+</style></head>
+<body>
+<div class="spectrum"></div>
+<div class="wrap">
+  <h1>Compra única.<br>Atualizações vitalícias.</h1>
+  <p class="sub">Sem assinatura, sem pegadinha. Acesso completo ao PRISMA Pro pra sempre + todas as versões futuras. Ative em até 2 PCs.</p>
+
+  <div class="grid" style="position:relative">
+    <span class="seal">PRISMA</span>
+    <div class="col form">
+      <div class="row"><span class="lbl">Quantidade</span>
+        <div class="qty"><button type="button" disabled>–</button><span class="n">1</span><button type="button" disabled>+</button></div>
+      </div>
+      <div class="row"><span class="lbl">Tipo</span>
+        <div class="seg"><button class="on" type="button">Pessoal</button><button type="button">Empresa</button></div>
+      </div>
+      <div class="row"><span class="lbl">Nome</span><input id="nome" type="text" placeholder="Seu nome"></div>
+      <div class="row"><span class="lbl">Email</span><input id="email" type="email" placeholder="voce@email.com"></div>
+      <div class="row"><span class="lbl">Cupom</span><input id="cupom" type="text" placeholder="Cupom (opcional)"></div>
+      <div class="row"><span class="lbl">Pagamento</span>
+        <div class="pay">💳 Cartão · PIX <span style="color:var(--mut);margin-left:auto;font-size:12px">via Stripe (seguro)</span></div>
+      </div>
+      <!-- Stripe Payment Element monta aqui quando as chaves estiverem configuradas -->
+      <div id="stripe-mount"></div>
+    </div>
+
+    <div class="col inc">
+      <h3>Incluso</h3>
+      <ul>
+        <li><span class="chk">✓</span> 1 chave de licença</li>
+        <li><span class="chk">✓</span> Cada chave vale pra <b>2 dispositivos</b></li>
+        <li><span class="chk">✓</span> Windows (macOS em breve)</li>
+        <li><span class="chk">✓</span> Desativações ilimitadas</li>
+        <li><span class="chk">✓</span> Todas as atualizações futuras</li>
+        <li><span class="chk">✓</span> IA, CST DaVinci, download, marca d'água…</li>
+        <li><span class="chk">✓</span> Uso comercial · núcleo grátis pra sempre</li>
+      </ul>
+      <div class="tot"><span>Total</span><span class="v"><small>R$</small> 150</span></div>
+      <button class="btn" id="pay" disabled>Pagar agora</button>
+      <div id="status"></div>
+      <div class="note">Pagamento processado com segurança pelo Stripe, direto aqui — sem sair do site. Você recebe a chave na hora e por e-mail.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Fluxo (ativa quando o worker de pagamento + Stripe estiverem configurados):
+// 1) POST {WORKER}/buy/intent {email,nome} -> {clientSecret, pk}
+// 2) Stripe(pk).elements({clientSecret}) -> monta o Payment Element em #stripe-mount
+// 3) confirmar -> sucesso -> mostra a chave (worker emite via webhook)
+const PAY_WORKER = ""; // <- URL do worker de pagamento (a configurar)
+const st = document.getElementById("status");
+async function init(){
+  if(!PAY_WORKER){ st.textContent = "⚙️ Pagamento em configuração — em breve você compra direto aqui."; return; }
+  try{
+    const r = await fetch(PAY_WORKER + "/buy/intent", {method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({})});
+    const d = await r.json();
+    if(!d.clientSecret){ st.textContent = "Não foi possível iniciar o pagamento."; return; }
+    const stripe = Stripe(d.pk);
+    const elements = stripe.elements({clientSecret:d.clientSecret, appearance:{theme:"night",variables:{colorPrimary:"#0a84ff"}}});
+    elements.create("payment").mount("#stripe-mount");
+    const btn = document.getElementById("pay"); btn.disabled=false;
+    btn.onclick = async ()=>{
+      btn.disabled=true; st.textContent="Processando…";
+      const {error} = await stripe.confirmPayment({elements, confirmParams:{return_url:location.origin+"/checkout.html?done=1", receipt_email:document.getElementById("email").value}});
+      if(error){ st.textContent = error.message; btn.disabled=false; }
+    };
+  }catch(e){ st.textContent = "Erro ao iniciar o checkout."; }
+}
+if(PAY_WORKER){ const s=document.createElement("script"); s.src="https://js.stripe.com/v3/"; s.onload=init; document.head.appendChild(s);} else { init(); }
+</script>
+</body></html>
