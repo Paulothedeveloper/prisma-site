@@ -1,8 +1,8 @@
 // Conteúdo bilíngue (PT-BR / EN) da landing do PRISMA. Copy de marketing derivada do produto.
 export type Lang = "pt" | "en";
 
-export const DOWNLOAD_URL = "https://github.com/Paulothedeveloper/prisma/releases/latest";
-export const GITHUB_URL = "https://github.com/Paulothedeveloper/prisma";
+export const DOWNLOAD_URL = "https://github.com/Paulothedeveloper/prisma-app/releases/latest";
+export const GITHUB_URL = "https://github.com/Paulothedeveloper/prisma-app";
 export const CONTACT_EMAIL = "paulobatista19988@proton.me";
 
 export const SPECTRUM = ["#FF453A", "#FF9F0A", "#FFD60A", "#30D158", "#40C8E0", "#0A84FF", "#BF5AF2"];
@@ -102,6 +102,66 @@ export const FAQ: Record<Lang, { title: string; items: { q: string; a: string }[
       { q: "How do I get updates?", a: "The app updates itself — you always have the latest version." },
       { q: "Do I need an account or cloud?", a: "No. Your library is yours, on your disk." },
     ],
+  },
+};
+
+// Planos (open-core). Grátis = organizar/achar. Pro = preparar/IA. Studio = time.
+// Compra no checkout PRÓPRIO (paulocodex.com/comprar) — Stripe, sem Gumroad, sem redirect pra loja.
+export const BUY_URL = "https://paulocodex.com/comprar?product=prisma";
+export const PLANS: Record<
+  Lang,
+  {
+    title: string;
+    sub: string;
+    tiers: { name: string; price: string; note: string; features: string[]; cta: string; highlight?: boolean; free?: boolean }[];
+    foot: string;
+  }
+> = {
+  pt: {
+    title: "Simples de escolher",
+    sub: "O núcleo é grátis pra sempre. O Pro libera o que prepara e finaliza sua mídia.",
+    tiers: [
+      {
+        name: "Grátis",
+        price: "R$ 0",
+        note: "pra sempre · + 3 dias de Pro",
+        free: true,
+        cta: "Baixar",
+        features: ["3 dias de Pro completo ao começar", "Organizar, tags, coleções", "Busca por cor e nome", "Prévia de tudo", "Duplicados e favoritos", "Forma de onda + BPM"],
+      },
+      {
+        name: "Pro",
+        price: "R$ 150",
+        note: "pagamento único · vitalício · 2 PCs",
+        highlight: true,
+        cta: "Comprar Pro",
+        features: ["Tudo do Grátis +", "IA: busca, auto-tag, upscale, remover fundo", "CST DaVinci + proxies + conserto", "Baixar do YouTube/Spotify/Epidemic", "Marca d'água, GIF, contact-sheet, OCR…", "Uso comercial"],
+      },
+    ],
+    foot: "Pagamento seguro no cartão, direto aqui — sua chave na hora. Grátis e Pro nunca tocam nos seus originais.",
+  },
+  en: {
+    title: "Easy to choose",
+    sub: "The core is free forever. Pro unlocks what preps and finishes your media.",
+    tiers: [
+      {
+        name: "Free",
+        price: "$0",
+        note: "forever · + 3-day Pro trial",
+        free: true,
+        cta: "Download",
+        features: ["3-day full Pro trial to start", "Organize, tags, collections", "Search by color and name", "Preview everything", "Duplicates and favorites", "Waveform + BPM"],
+      },
+      {
+        name: "Pro",
+        price: "$39",
+        note: "one-time · lifetime · 2 PCs",
+        highlight: true,
+        cta: "Buy Pro",
+        features: ["Everything in Free +", "AI: search, auto-tag, upscale, bg removal", "DaVinci CST + proxies + fix", "Download from YouTube/Spotify/Epidemic", "Watermark, GIF, contact-sheet, OCR…", "Commercial use"],
+      },
+    ],
+    foot: "Secure card payment, right here — your key instantly. Free and Pro never touch your originals.",
   },
 };
 

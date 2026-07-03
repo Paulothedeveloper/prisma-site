@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { COPY, COMPARE, FAQ, SPECTRUM, DOWNLOAD_URL, GITHUB_URL, CONTACT_EMAIL, type Lang } from "./content";
+import { COPY, COMPARE, FAQ, PLANS, BUY_URL, SPECTRUM, DOWNLOAD_URL, GITHUB_URL, CONTACT_EMAIL, type Lang } from "./content";
 import { Icon } from "./Icon";
 import "./App.css";
 
@@ -33,7 +33,7 @@ export default function App() {
         <nav className="nav-links">
           <a href="#features">{c.nav.features}</a>
           <a href="#gallery">{c.nav.gallery}</a>
-          <a href="#audiences">{c.nav.audiences}</a>
+          <a href="#plans">{lang === "pt" ? "Planos" : "Plans"}</a>
         </nav>
         <div className="nav-right">
           <button className="lang" onClick={() => setLang((l) => (l === "pt" ? "en" : "pt"))} aria-label="Language">
@@ -194,6 +194,46 @@ export default function App() {
               </div>
             ))}
           </div>
+        </section>
+
+        <section className="section plans" id="plans">
+          <div className="section-head" data-reveal>
+            <h2>{PLANS[lang].title}</h2>
+            <p className="lead">{PLANS[lang].sub}</p>
+          </div>
+          <div className="plan-grid">
+            {PLANS[lang].tiers.map((tier, i) => (
+              <article
+                className={`plan ${tier.highlight ? "plan-hot" : ""}`}
+                key={tier.name}
+                data-reveal
+                style={{ transitionDelay: `${i * 70}ms` }}
+              >
+                {tier.highlight && <span className="plan-tag">★</span>}
+                <h3>{tier.name}</h3>
+                <div className="plan-price">
+                  {tier.price}
+                  <span className="plan-note"> {tier.note}</span>
+                </div>
+                <ul>
+                  {tier.features.map((f) => (
+                    <li key={f}>
+                      <Icon name="check" /> {f}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  className={`btn ${tier.highlight ? "btn-primary" : "btn-ghost"} plan-cta`}
+                  href={tier.free ? DOWNLOAD_URL : BUY_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {tier.cta}
+                </a>
+              </article>
+            ))}
+          </div>
+          <p className="plan-foot">{PLANS[lang].foot}</p>
         </section>
 
         <section className="section faq">
