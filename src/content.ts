@@ -3,7 +3,7 @@ export type Lang = "pt" | "en";
 
 export const DOWNLOAD_URL = "https://github.com/Paulothedeveloper/prisma-app/releases/latest";
 export const GITHUB_URL = "https://github.com/Paulothedeveloper/prisma-app";
-export const CONTACT_EMAIL = "paulobatista19988@proton.me";
+export const CONTACT_EMAIL = "contato@paulocodex.com";
 
 export const SPECTRUM = ["#FF453A", "#FF9F0A", "#FFD60A", "#30D158", "#40C8E0", "#0A84FF", "#BF5AF2"];
 
