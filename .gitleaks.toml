@@ -1,0 +1,21 @@
+# gitleaks config do Paulo - allowlist de falsos positivos conhecidos
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Chaves publicas por design + arquivos gerados"
+regexes = [
+  # Firebase/Google client apiKey (AIza...) = PUBLICA por design (Firebase Web/Android/iOS).
+  # Seguranca = Security Rules + App Check, nao esconder a key (Google confirma).
+  '''AIza[0-9A-Za-z\-_]{35}''',
+]
+paths = [
+  '''firebase_options\.dart''',
+  '''google-services\.json''',
+  '''GoogleService-Info\.plist''',
+  '''firebase-config\.js''',
+  '''(^|/)dist/''',
+  '''\.lock$''',
+  '''package-lock\.json''',
+  '''pubspec\.lock''',
+]
